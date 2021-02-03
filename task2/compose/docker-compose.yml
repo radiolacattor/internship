@@ -18,7 +18,10 @@ services:
   jenkins:
     build: ./jenkins
     restart: always
+    depends_on:
+      db:
+        condition: service_started
     ports:
-      - 8000:8080
+      - 8080:8080
       - 50000:50000   
 
