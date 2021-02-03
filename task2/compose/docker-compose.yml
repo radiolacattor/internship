@@ -10,12 +10,15 @@ services:
   db:
     build: ./mariadb
     restart: always
+    ports:
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: 123456
 
-  adminer:
-    build: ./adminer
+  jenkins:
+    build: ./jenkins
     restart: always
     ports:
-      - 8080:8080    
+      - 8000:8080
+      - 50000:50000   
 
