@@ -2,21 +2,21 @@ version: "3.9"
 services:
 
   nginx: 
-    build: ./nginx
+    image: radiolacattor/mynginx
     restart: always
     ports: 
       - 80:80
 
   db:
-    build: ./mariadb
+    image: mariadb
     restart: always
     ports:
       - 3306:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: 123456
-
+    env_file:
+      - db.env
+  
   jenkins:
-    build: ./jenkins
+    image: jenkins:2.60.3
     restart: always
     depends_on:
       db:
