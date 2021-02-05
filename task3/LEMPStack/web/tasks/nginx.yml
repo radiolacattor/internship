@@ -1,0 +1,21 @@
+---
+- name: install nginx and dependences
+  apt: 
+    update_cache: yes 
+    state: latest 
+    name: nginx
+
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+    enabled: true
+
+- name: allow http
+  ufw:
+    state: enabled
+    rule: allow
+    port: http
+    proto: tcp  
+  
+    

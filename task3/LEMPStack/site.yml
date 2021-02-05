@@ -1,0 +1,8 @@
+---
+- name: hosts
+  hosts: virtual
+  become: true
+  roles:
+    - web
+  vars_files:
+    - web/vars/mysqlpass.yml

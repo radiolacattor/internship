@@ -1,0 +1,6 @@
+---
+- name: install php
+  apt: 
+    update_cache: yes 
+    state: latest 
+    name: ['python3-pymysql', 'php-fpm', 'php-mysql']
