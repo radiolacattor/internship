@@ -1,0 +1,26 @@
+---
+- name: install nginx
+  hosts: virtual
+  become: yes
+
+  tasks:
+  - name: install nginx if it is not
+    apt:
+      name: nginx
+      state: latest
+
+  - name: start nginx
+    service:
+      name: nginx
+      state: started
+      enabled: true
+
+  - name: allow http
+    ufw:
+      state: enabled
+      rule: allow
+      port: http
+      proto: tcp
+
+  
+    
