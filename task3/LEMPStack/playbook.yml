@@ -1,0 +1,45 @@
+---
+- name: hosts
+  hosts: virtual
+  become: true
+  vars_files:
+    - mysqlpass.yml
+
+  tasks:
+  - name: install nginx and dependences
+    apt:
+      name: [ 'nginx', 'mysql-server', 'python3-pymysql', 'php-fpm', 'php-mysql' ]
+      state: latest
+
+  - name: start nginx
+    service:
+      name: nginx
+      state: started
+      enabled: true
+
+  - name: allow http
+    ufw:
+      state: enabled
+      rule: allow
+      port: http
+      proto: tcp
+ 
+  - name: Sets the root password for mysql
+    mysql_user: 
+      name: root 
+      password: "{{ mysql_root_password }}"
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+
+  - name: Removes all anonymous user accounts
+    mysql_user:
+      name: ''
+      state: absent
+      login_user: root
+      login_password: "{{ mysql_root_password }}"
+
+  - name: Removes the MySQL test database
+    mysql_db: 
+      name: test 
+      state: absent
+      login_user: root
+      login_password: "{{ mysql_root_password }}"

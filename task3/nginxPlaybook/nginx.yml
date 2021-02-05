@@ -1,7 +1,7 @@
 ---
 - name: install nginx
   hosts: home
-  remote_user: root
+  become: yes
 
   tasks:
   - name: install nginx if it is not
@@ -14,5 +14,16 @@
       name: nginx
       state: started
       enabled: true
+
+  - name: allow http
+    firewalld:
+      service: https
+      permanent: true
+      state: enabled 
+
+  - name: Restart firewall
+    systemd:
+      name: firewalld
+      state: reloaded      
   
     

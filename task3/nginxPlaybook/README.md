@@ -1,4 +1,4 @@
-Ansible playbook for installing nginx on Ubuntu 20.04 LTS
+Ansible playbook for installing nginx on CentOS 7, 8
 ___
 
 ### Install nginx ###
