@@ -2,12 +2,11 @@ pipeline {
 
 agent any
 
-environment {
-     PASSWORD = credentials('pass')
-}
-
 stages {
     stage('build'){
+ 	  	environment {
+    		PASSWORD = credentials('PASSWORD')
+}
         steps {
             dir ('task4') {
                 sh 'docker build -t rad:lts .'
