@@ -3,13 +3,8 @@ pipeline {
 
     stages {
         stage('dockerfile') {
-            agent {
-                dockerfile {
-                filename '/var/jenkins_home/jobs/Dockerfile/Dockerfile'
-                }
-            }
             steps {
-            sh 'cd /var/jenkins_home/jobs/Dockerfile && docker build -t radiolacattor .'
+            sh 'docker build -t radiolacattor https://raw.githubusercontent.com/radiolacattor/internship/master/task2/dockerfile/Dockerfile'
             }
         }
     }
