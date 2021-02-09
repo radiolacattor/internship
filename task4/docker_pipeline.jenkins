@@ -1,11 +1,15 @@
-pipeline { 
-    agent any
+pipeline {
 
-    stages {
-        stage('dockerfile') {
-            steps {
-            sh 'docker build -t radiolacattor https://raw.githubusercontent.com/radiolacattor/internship/master/task2/dockerfile/Dockerfile'
+agent any
+
+stages {
+    stage('build'){
+        steps {
+            dir ('task4') {
+                sh 'docker build'
+                }
             }
         }
     }
+
 }
