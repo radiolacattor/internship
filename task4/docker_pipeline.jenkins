@@ -2,10 +2,6 @@ pipeline {
 
 agent any
 
-environment {
-    PASSWORD = credentialsId: 'PASSWORD'
-}
-
 stages {
     stage('build'){
         steps {
