@@ -4,7 +4,8 @@ agent any
 
 stages {
     stage('build'){
-        steps {  	
+        steps {
+        	sh 'echo ${PASSWORD}'  	
            	dir ('task4') {
             sh 'docker build -t rad:lts .'
                	}
