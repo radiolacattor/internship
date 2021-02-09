@@ -3,7 +3,7 @@ pipeline {
 agent any
 
 environment {
-    PASSWORD = credentialsId('PASSWORD')
+    PASSWORD = credentialsId: 'PASSWORD'
 }
 
 stages {
