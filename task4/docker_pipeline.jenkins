@@ -1,0 +1,16 @@
+pipeline { 
+    agent any
+
+    stages {
+        stage('dockerfile') {
+            agent {
+                dockerfile {
+                filename '/var/jenkins_home/jobs/Dockerfile/Dockerfile'
+                }
+            }
+            steps {
+            sh 'cd /var/jenkins_home/jobs/Dockerfile && docker build -t radiolacattor .'
+            }
+        }
+    }
+}
