@@ -7,6 +7,7 @@ stages {
         steps {
             dir ('task4') {
                 sh 'docker build -t rad:lts .'
+            	}
             }
         }
     }
