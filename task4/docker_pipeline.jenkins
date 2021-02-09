@@ -6,7 +6,7 @@ stages {
     stage('build'){
         steps {
             dir ('task4') {
-                sh 'docker build'
+                sh 'docker build .'
                 }
             }
         }
