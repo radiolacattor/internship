@@ -8,7 +8,7 @@ stages {
          	withCredentials([string(credentialsId: 'PASSWORD', variable: 'PASSWORD')]) {
         		sh 'echo ${PASSWORD}'  	
            		dir ('task4') {
-            	sh 'docker build PASSWORD=${PASSWORD} -t rad:lts .'
+            	sh 'docker build --build-arg PASSWORD=${PASSWORD} -t rad:lts .'
     	           	}
 	            }
 			}
