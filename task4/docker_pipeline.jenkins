@@ -2,17 +2,14 @@ pipeline {
 
 agent any
 
-node {
-    withCredentials([string(credentialsId: 'PASSWORD', variable: 'PASSWORD')]) { 
-        echo "My pass is '${PASSWORD}'"
-    }
-}
-
 stages {
     stage('build'){
         steps {
-            dir ('task4') {
+        	withCredentials([string(credentialsId: 'PASSWORD', variable: 'PASSWORD')]) {
+        		echo "My pass is '${PASSWORD}'"
+            	dir ('task4') {
                 sh 'docker build -t rad:lts .'
+            		}
             	}
             }
         }
