@@ -10,7 +10,7 @@ stages {
             	sh 'docker build --build-arg PASSWORD=${PASSWORD} -t rad:lts .'
     	           	}
 	            }
-			}
+		}
         }
     }
 }
