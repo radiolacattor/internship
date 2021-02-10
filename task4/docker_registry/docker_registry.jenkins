@@ -1,0 +1,20 @@
+pipeline {
+
+agent any
+
+stages {
+	stage('create docker registry'){
+		steps{
+			sh 'docker run -d -p 5000:5000 --name registry registry:2'
+		}
+	}
+    stage('my image'){
+         steps {
+           		sh 'docker pull radiolacattor/mynginx'
+            	sh 'docker tag radiolacattor/mynginx localhost:5000/radiolacattor'
+    	        sh 'docker push localhost:5000/radiolacattor'  	
+		        
+			}
+        }
+    }
+}
