@@ -1,0 +1,6 @@
+---
+- name: hosts
+  hosts: virtual
+  become: true
+  roles:
+    - web
