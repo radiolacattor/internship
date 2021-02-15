@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  master:
+    image: mariadb
+    environment:
+      - "MYSQL_ROOT_PASSWORD=test"
+      - "ALLOW_EMPTY_PASSWORD=yes"
+    volumes:
+      - "./init/master:/docker-entrypoint-initdb.d"
+      - "./conf/master:/etc/mysql/conf.d"
+      - "./data/master:/var/lib/mysql"
+  
+  replica:
+    image: mariadb
+    volumes:
+      - "./init/replica:/docker-entrypoint-initdb.d"
+      - "./conf/replica:/etc/mysql/conf.d"
+      - "./data/replica:/var/lib/mysql"
+    environment:
+      - "MYSQL_MASTER_ROOT_PASS=test"
+      - "MYSQL_ROOT_PASSWORD=test"
+      - "ALLOW_EMPTY_PASSWORD=yes"
+    depends_on:
+      - master
+   
