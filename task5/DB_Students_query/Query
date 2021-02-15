@@ -1,0 +1,1 @@
+SELECT `task1`, `task2`, `task3`, `task4` FROM `Result`, `Student` WHERE `Student`.`Student` LIKE '×åñíþê%' AND `Student`.`StudentId`=`Result`.`StudentId`;

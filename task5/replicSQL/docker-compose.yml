@@ -4,7 +4,7 @@ services:
   master:
     image: mariadb
     environment:
-      - "MYSQL_ROOT_PASSWORD=test"
+      - "MYSQL_ROOT_PASSWORD=chage_me"
       - "ALLOW_EMPTY_PASSWORD=yes"
     volumes:
       - "./init/master:/docker-entrypoint-initdb.d"
@@ -18,8 +18,8 @@ services:
       - "./conf/replica:/etc/mysql/conf.d"
       - "./data/replica:/var/lib/mysql"
     environment:
-      - "MYSQL_MASTER_ROOT_PASS=test"
-      - "MYSQL_ROOT_PASSWORD=test"
+      - "MYSQL_MASTER_ROOT_PASS=chage_me"
+      - "MYSQL_ROOT_PASSWORD=chage_me"
       - "ALLOW_EMPTY_PASSWORD=yes"
     depends_on:
       - master
