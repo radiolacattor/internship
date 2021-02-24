@@ -1,0 +1,14 @@
+pipeline {
+
+agent any
+
+stages {
+    stage('build'){
+         steps {
+         		dir('task7/frontend/'){
+         		sh 'docker build -t radiolacattor/frontend .'    
+         		}
+            }
+		}
+    }
+}
