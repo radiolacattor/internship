@@ -1,14 +1,14 @@
 pipeline {
+    agent any
 
-agent any
-
-stages {
-    stage('build'){
-         steps {
-         		dir('task7/frontend/'){
-         		sh 'docker build -t radiolacattor/frontend .'    
+    stages {
+        stage('build') {
+            steps {
+                dir('/var/jenkins_home'){
+         		sh 'docker build -t radiolacattor/frontend .' 
+         		sh 'docker run --name frontend -d -p 4200:4200 radiolacattor/frontend'
          		}
             }
-		}
+        }
     }
 }
