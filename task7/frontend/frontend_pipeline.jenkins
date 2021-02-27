@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+    
         stage('build') {
             steps {
                 dir('task7/frontend/'){
