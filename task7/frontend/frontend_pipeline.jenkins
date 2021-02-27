@@ -5,9 +5,10 @@ pipeline {
         stage('build') {
             steps {
                 dir('task7/frontend/'){
-         		sh 'docker build -t radiolacattor/frontend .' 
-         		sh 'docker run --name frontend -d -p 4200:4200 radiolacattor/frontend'
-         		}
+         		sh 'docker build -t radiolacattor/frontend .'
+                sh 'docker run --name frontend -d -p 4200:80 radiolacattor/frontend' 
+
+           		}
             }
         }
     }
