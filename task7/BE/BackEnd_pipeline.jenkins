@@ -5,7 +5,7 @@ pipeline {
 
         stage('build') {
             steps {
-            	sh 'su root'
+            	sh 'su 1000'
             	sh 'cd /home'
                 sh 'rm -r internship2021'
                 sh 'rm -r Dima'
