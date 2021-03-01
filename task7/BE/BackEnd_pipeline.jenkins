@@ -7,6 +7,7 @@ pipeline {
             steps {
                 sh 'cd /home'
                 sh 'rm -r internship2021'
+                sh 'rm -r Dima'
                 sh 'git clone -b Authentication https://github.com/ala-n/internship2021.git' 
                 sh 'git clone https://github.com/radiolacattor/Dima.git'
                 sh 'cp /home/Dima/NuGet.Config /home/internship2021/src/Xdl.Internship.Authentication/Xdl.Internship.Authentication.Host' 
