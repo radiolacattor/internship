@@ -4,7 +4,7 @@ pipeline {
     stages {
             stage('build') {
             steps {
-                sh 'cd /home'
+                sh 'cd /home/internship2021'
                 sh 'git pull origin Authentication'  
                 sh 'cd /home/internship2021/src/Xdl.Internship.Authentication'
                                 
