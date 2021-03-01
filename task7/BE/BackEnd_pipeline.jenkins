@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    stages {
+            stage('build') {
+            steps {
+                sh 'cd /home'
+                sh 'git clone -b Authentication https://github.com/ala-n/internship2021.git'  
+                sh 'cd /home/internship2021/src/Xdl.Internship.Authentication'
+                                
+           		}
+            }
+        }
+    }
+}
