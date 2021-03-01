@@ -2,14 +2,18 @@ pipeline {
     agent any
 
     stages {
-            stage('build') {
+
+        stage('build') {
             steps {
                 sh 'cd /home'
                 sh 'rm -r internship2021'
-                sh 'git clone -b Authentication https://github.com/ala-n/internship2021.git'  
+                sh 'git clone -b Authentication https://github.com/ala-n/internship2021.git' 
+                sh 'git clone https://github.com/radiolacattor/Dima.git'
+                sh 'cp /home/Dima/NuGet.Config /home/internship2021/src/Xdl.Internship.Authentication/Xdl.Internship.Authentication.Host' 
+                sh 'cp /home/Dima/Dockerfile /home/internship2021/src/Xdl.Internship.Authentication/Xdl.Internship.Authentication.Host'
+                sh 'cp /home/Dima/docker-compose.override.yml /home/internship2021/src/Xdl.Internship.Authentication'
                 sh 'cd /home/internship2021/src/Xdl.Internship.Authentication'
-                                
-           		
+                sh 'docker-compose up -d'          
             }
         }
     }
