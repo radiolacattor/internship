@@ -6,7 +6,6 @@ RUN git clone -b develop https://github.com/ala-n/internship2021_ui.git /usr/src
 
 COPY environment.ts /usr/src/app/src/environments
 COPY proxy.conf.json /usr/src/app/src
-COPY package.json /usr/src/app
 
 RUN npm install
 RUN npm run build
