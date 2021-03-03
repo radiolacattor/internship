@@ -8,7 +8,7 @@ COPY environment.ts /usr/src/environments
 COPY proxy.conf.json /usr/src
 
 RUN npm install
-RUN npm run build
+RUN npm run build --prod
 
 FROM nginx:1.17.1-alpine
 COPY default.conf /etc/nginx/conf.d
