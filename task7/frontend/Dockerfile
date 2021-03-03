@@ -4,11 +4,12 @@ WORKDIR /usr/src/app
 RUN apk update&&apk add git
 RUN git clone -b develop https://github.com/ala-n/internship2021_ui.git /usr/src/app
 
-COPY environment.ts /usr/src/environments
-COPY proxy.conf.json /usr/src
+COPY environment.ts /usr/src/app/src/environments
+COPY proxy.conf.json /usr/src/app/src
+COPY package.json /usr/src/app
 
 RUN npm install
-RUN npm run build --prod
+RUN npm run build
 
 FROM nginx:1.17.1-alpine
 COPY default.conf /etc/nginx/conf.d
