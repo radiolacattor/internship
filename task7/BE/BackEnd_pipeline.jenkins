@@ -5,15 +5,16 @@ pipeline {
 
         stage('build') {
             steps {
-               	sh 'cd /home'
-                sh 'rm -r internship2021'
-                sh 'rm -r Dima'
-                sh 'git clone -b Authentication https://github.com/ala-n/internship2021.git' 
-                sh 'git clone https://github.com/radiolacattor/Dima.git'
-                sh 'cp /home/Dima/NuGet.Config /home/internship2021/src/Xdl.Internship.Authentication/Xdl.Internship.Authentication.ServiceHost' 
-                sh 'cp /home/Dima/Dockerfile /home/internship2021/src/Xdl.Internship.Authentication/Xdl.Internship.Authentication.ServiceHost'
-                sh 'cp /home/Dima/docker-compose.override.yml /home/internship2021/src/Xdl.Internship.Authentication'
-                sh 'cd /home/internship2021/src/Xdl.Internship.Authentication'
+               	sh 'cd /var/jenkins_home/BE'              
+                sh 'git clone -b offers/base https://github.com/ala-n/internship2021.git' 
+                sh 'cp /var/jenkins_home/BE/NuGet.Config /var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers/Xdl.Internship.Offers.ServiceHost'
+
+                sh 'cp /var/jenkins_home/BE/Dockerfile /var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers/Xdl.Internship.Offers.ServiceHost'
+
+                sh 'cp /var/jenkins_home/BE/docker-compose.override.yml /var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers'
+                 
+
+                sh 'cd /var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers'
                 sh 'docker-compose up -d'          
             }
         }
