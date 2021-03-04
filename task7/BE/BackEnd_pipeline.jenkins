@@ -7,9 +7,8 @@ pipeline {
             steps {
                	sh 'cd /var/jenkins_home/BE' 
                 sh 'rm -r internship2021 || true'             
-                sh 'git clone -b offers/base https://github.com/ala-n/internship2021.git'
-		sh 'sleep 15'
-            }
+                git branch: 'offers/base', url: 'https://github.com/ala-n/internship2021'
+		    }
         }
         stage('copy files') {
         	steps{
