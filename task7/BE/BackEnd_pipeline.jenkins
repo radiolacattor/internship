@@ -5,9 +5,10 @@ pipeline {
 
         stage('clone') {
             steps {
-               	sh 'cd /var/jenkins_home/BE' 
-                sh 'rm -r internship2021 || true'             
-                git branch: 'offers/base', url: 'https://github.com/ala-n/internship2021'
+                dir('/var/jenkins_home/BE'){
+                                 
+                    git branch: 'offers/base', url: 'https://github.com/ala-n/internship2021'
+                }
 		    }
         }
         stage('copy files') {
