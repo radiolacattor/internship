@@ -28,8 +28,9 @@ pipeline {
         }
         stage('build') {
         	steps {
-        		sh 'cd /var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers'
-                sh 'docker-compose build' 
+                dir('/var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers'){
+                    sh 'docker-compose build'
+                }
         	}
         }
         stage('start') {
