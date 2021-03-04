@@ -22,6 +22,7 @@ pipeline {
         		sh 'cp -f /var/jenkins_home/BE/NuGet.Config /var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers/Xdl.Internship.Offers.ServiceHost'
                 sh 'cp -f /var/jenkins_home/BE/Dockerfile /var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers/Xdl.Internship.Offers.ServiceHost'
                 sh 'cp -f /var/jenkins_home/BE/docker-compose.override.yml /var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers'
+                sh 'cp -f /var/jenkins_home/BE/docker-compose.yml /var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers'
                 sh 'cp -f /var/jenkins_home/BE/appsettings.json /var/jenkins_home/BE/internship2021/src/Xdl.Internship.Offers/Xdl.Internship.Offers.ServiceHost'          
            	}
         }
