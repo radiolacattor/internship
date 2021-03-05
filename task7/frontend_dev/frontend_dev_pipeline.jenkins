@@ -9,7 +9,6 @@ pipeline {
          		sh 'docker build -t radiolacattor/frontend_dev .'
                 sh 'docker stop frontend_dev || true'
                 sh 'docker run --rm --name frontend_dev -d -p 4300:80 radiolacattor/frontend_dev'
-                sh 'docker rmi --force radiolacattor/frontend_dev || true' 
            		}
             }
         }
