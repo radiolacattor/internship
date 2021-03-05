@@ -13,7 +13,7 @@ pipeline {
             steps {
                 dir('/var/jenkins_home/BE/internship2021'){
                                  
-                    git branch: 'offers/base', url: 'https://github.com/ala-n/internship2021'
+                    git branch: 'offers/feature', url: 'https://github.com/ala-n/internship2021'
                 }
 		    }
         }
