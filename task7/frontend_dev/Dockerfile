@@ -2,7 +2,7 @@ FROM node:13-alpine AS build
 WORKDIR /usr/src/app
 RUN apk update&&apk add git
 #RUN rm -rf /usr/src/app/*
-RUN git clone -b develop https://github.com/ala-n/internship2021_ui.git /usr/src/app skipcache
+RUN git clone -b develop https://github.com/ala-n/internship2021_ui.git /usr/src/app 
 
 RUN npm install
 RUN npm run build
