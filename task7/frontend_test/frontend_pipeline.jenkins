@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+    
+        stage('build') {
+            steps {
+                dir('task7/frontend_test/'){
+         		sh 'docker build -t radiolacattor/frontend_test .'
+                sh 'docker stop frontend_test || true'
+                sh 'docker run --rm --name frontend_test -d -p 4200:80 radiolacattor/frontend_test' 
+           		}
+            }
+        }
+    }
+}
