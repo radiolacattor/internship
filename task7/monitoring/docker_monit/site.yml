@@ -1,0 +1,6 @@
+---
+- name: hosts
+  hosts: azure
+  become: true
+  roles:
+    - web

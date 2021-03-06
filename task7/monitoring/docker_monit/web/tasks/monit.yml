@@ -1,0 +1,8 @@
+---
+- name: Clone a repo 
+  ansible.builtin.git:
+    repo: https://github.com/stefanprodan/dockprom.git
+    dest: /home/dockprom
+- name: Run docker-compose
+  ansible.builtin.command: docker-compose -f /home/dockprom/docker-compose.yml up -d
+ 
