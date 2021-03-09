@@ -6,7 +6,7 @@ pipeline {
         stage('build') {
             steps {
                 dir('task7/frontend/'){
-         		sh 'docker build --no-cache -t radiolacattor/frontend .'
+         		sh 'docker build -t radiolacattor/frontend .'
                 sh 'docker stop frontend || true'
                 sh 'docker run --rm --name frontend -d -p 4200:80 radiolacattor/frontend' 
            		}
