@@ -21,9 +21,6 @@ pipeline {
         stage('copy files') {
         	steps{
         		sh 'cp -f /var/jenkins_home/BE/NuGet.Config /var/jenkins_home/BE/Auth/internship2021/src/Xdl.Internship.Authentication/Xdl.Internship.Authentication.ServiceHost'
-                sh 'cp -f /var/jenkins_home/BE/Auth/Dockerfile /var/jenkins_home/BE/Auth/internship2021/src/Xdl.Internship.Authentication/Xdl.Internship.Authentication.ServiceHost'
-                sh 'cp -f /var/jenkins_home/BE/Auth/docker-compose.override.yml /var/jenkins_home/BE/Auth/internship2021/src/Xdl.Internship.Authentication'
-                sh 'cp -f /var/jenkins_home/BE/Auth/docker-compose.yml /var/jenkins_home/BE/Auth/internship2021/src/Xdl.Internship.Authentication'
                 sh 'cp -f /var/jenkins_home/BE/Auth/appsettings.json /var/jenkins_home/BE/Auth/internship2021/src/Xdl.Internship.Authentication/Xdl.Internship.Authentication.ServiceHost'          
            	}
         }
