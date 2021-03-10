@@ -1,32 +1,39 @@
 pipeline {
     agent any
+    
+    environment {
+        PATHTOFRONT = "/var/jenkins_home/Front"
+        FRONTFOLD = "internship2021_ui"
+        
+    }
 
     stages {
         stage('clear') {
             steps {
-                dir('/var/jenkins_home/Front'){
-                    sh 'rm -r internship2021_ui || true'
+                dir("${PATHTOFRONT}"){
+                    sh 'rm -r ${FRONTFOLD} || true'
+                    echo "${PATHTOFRONT}"
                 }
             }
         }
         stage('clone repo') {
             steps {
-                dir('/var/jenkins_home/Front/internship2021_ui'){
+                dir("${PATHTOFRONT}/${FRONTFOLD}"){
                     git branch: 'develop', url: 'https://github.com/ala-n/internship2021_ui'
                 }
             }
         }
         stage('copy files') {
             steps {
-                dir('/var/jenkins_home/Front'){
-                    sh 'cp Dockerfile /var/jenkins_home/Front/internship2021_ui'
-                    sh 'cp default.conf /var/jenkins_home/Front/internship2021_ui'
+                dir("${PATHTOFRONT}"){
+                    sh 'cp Dockerfile ${PATHTOFRONT}/${FRONTFOLD}'
+                    sh 'cp default.conf ${PATHTOFRONT}/${FRONTFOLD}'
                 }
             }
         }
         stage('build') {
             steps {
-                dir('/var/jenkins_home/Front/internship2021_ui'){
+                dir("${PATHTOFRONT}/${FRONTFOLD}"){
                     sh 'docker build -t radiolacattor/frontend .'
                 }
             }
