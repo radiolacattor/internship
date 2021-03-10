@@ -7,4 +7,4 @@
 - Dockerfile - angular app
 - Pipeline Jenkins for CI/CD
 
-#### Copy Dockerfile and default.conf to the project directory.  
+##### Change vars $PATHTOFRONT and $FRONTFOLD in pipeline and copy Dockerfile and default.conf to your Jenkins workspace. 
