@@ -22,3 +22,4 @@
 - password "1234"
 
 ### Source code [Frontend](https://github.com/ala-n/internship2021_ui) [Backend](https://github.com/ala-n/internship2021)
+![Структура](img.jpg "Cloud")
