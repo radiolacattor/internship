@@ -6,18 +6,20 @@ pipeline {
         TERRAFORM_HOME='internship/task8/'
     }
 
-    stage('Terraform Plan') {
-      steps {
-        dir("${TERRAFORM_HOME}"){
+    stages{
+      stage('Terraform Plan') {
+        steps {
+          dir("${TERRAFORM_HOME}"){
             sh "terraform plan -out=tfplan -input=false'"
         }
       }
     }
-    stage('Terraform Apply') {
-      steps {
-      dir("${TERRAFORM_HOME}"){
-        sh "terraform apply -input=false tfplan"
-      }       
+      stage('Terraform Apply') {
+        steps {
+          dir("${TERRAFORM_HOME}"){
+            sh "terraform apply -input=false tfplan"
+        }       
+      }
     }
   }
 }
