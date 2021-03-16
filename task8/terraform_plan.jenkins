@@ -10,7 +10,7 @@ pipeline {
       stage('Terraform Plan') {
         steps {
           dir("${TERRAFORM_HOME}"){
-            sh "terraform plan -out=tfplan -input=false'"
+            sh "terraform plan -out=tfplan -input=false"
         }
       }
     }
