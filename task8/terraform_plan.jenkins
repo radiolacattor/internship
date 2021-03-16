@@ -17,6 +17,6 @@ pipeline {
       steps {
       dir("${TERRAFORM_HOME}"){
         sh "terraform apply -input=false tfplan"
-        }       
-      }
-    }
+    }       
+  }
+}
