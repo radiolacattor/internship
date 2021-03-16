@@ -3,7 +3,7 @@ pipeline {
   agent any
 
     environment{
-        TERRAFORM_HOME='/var/jenkins_home/terraform'
+        TERRAFORM_HOME='/var/jenkins_home/terraform/'
     }
       stages{
         stage('terraform init'){
