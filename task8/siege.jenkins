@@ -5,7 +5,7 @@ pipeline{
 	stages{
 		stage('test'){
 			steps{
-				sh 'siege -c 40 -t 5m'
+				sh 'siege -c 40 -t 5m http://web-elb-1687974674.eu-central-1.elb.amazonaws.com'
 			}
 		}
 	}
