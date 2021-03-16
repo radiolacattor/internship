@@ -1,0 +1,24 @@
+pipeline {
+
+  agent any
+
+    environment{
+        TERRAFORM_HOME='/var/jenkins_home/terraform'
+    }
+
+    stage('Terraform Plan') {
+      steps {
+        dir("${TERRAFORM_HOME}"){
+            sh "terraform plan -out=tfplan -input=false'"
+        }
+      }
+    }
+    stage('Terraform Apply') {
+      steps {
+      dir("${TERRAFORM_HOME}"){
+        sh "terraform apply -input=false tfplan"
+        }       
+      }
+    }
+  }
+}

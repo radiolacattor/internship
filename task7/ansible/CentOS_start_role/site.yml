@@ -1,6 +1,6 @@
 ---
 - name: hosts
-  hosts: virtual
+  hosts: aws
   become: true
   roles:
     - web

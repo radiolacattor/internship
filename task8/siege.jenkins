@@ -1,0 +1,12 @@
+pipeline{
+	
+	agent any
+
+	stages{
+		stage('test'){
+			steps{
+				sh 'siege -c 40 -t 5m'
+			}
+		}
+	}
+}
