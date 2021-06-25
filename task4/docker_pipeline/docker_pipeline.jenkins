@@ -5,7 +5,7 @@ agent any
 stages {
     stage('build'){
          steps {
-         	withCredentials([string(credentialsId: 'Dima', variable: 'PASSWORD')]) { 	
+         	withCredentials([string(credentialsId: 'PASSWORD', variable: 'Dima')]) { 	
            		dir ('task4/docker_pipeline/') {
                 sh 'echo "${PASSWORD}"'
             	sh 'docker build --build-arg PASSWORD="${PASSWORD}" -t rad:lts .'
