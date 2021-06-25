@@ -7,7 +7,7 @@ stages {
          steps {
          	withCredentials([string(credentialsId: 'PASSWORD', variable: 'Dima')]) { 	
            		dir ('task4/docker_pipeline/') {
-            	sh 'docker build --build-arg PASSWORD=${PASSWORD} -t rad:lts .'
+            	sh 'docker build --build-arg PASSWORD="echo ${PASSWORD}" -t rad:lts .'
     	           	}
 		            }
 		}
